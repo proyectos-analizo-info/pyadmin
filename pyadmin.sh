@@ -8,6 +8,8 @@ cabecera() {
 }
 opciones() {
     cabecera
+    echo "contacto AT analizo DOT info"
+    echo
     echo "Modo de empleo: sh pyadmin.sh [ARGUMENTO]"
     echo
     echo "-------------"
@@ -99,11 +101,15 @@ else
     cabecera
     case $1 in
     "1")
+        activarModoDeMantenimiento
+        recargarApache
         aptitude update
         aptitude safe-upgrade
         aptitude full-upgrade
         aptitude clean
         aptitude autoclean
+        activarProyectosAnalizoInfo
+        recargarApache
     ;;
     "2")
         aptitude update
